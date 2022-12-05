@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Login Form Example</title>
+    {% load static %}
+        <link rel="stylesheet" href="{% static "r1.css" %}">
+        <link type="text/css" rel="stylesheet"  href="{% static "css/bootstrap.css" %}">
+        <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
+
+    
+  </head>
+
+  <body class="body">
+    <div class="container-fluid pt-2  text-white heading ">
+        <div class="row">
+          {% comment %} logo {% endcomment %}
+        <div class="col-2 px-3 ">
+          <img  class="navbar-brand" src="{% static 'logo.png' %}" alt="logo" width="80px">
+        </div>
+        {% comment %} title {% endcomment %}
+      <div class="col-8 py-3 ">
+        <h1>Bhopal School of Social Sciences</h1>
+      </div>
+      
+      <div class="col-2 px-3">
+        <img src="{% static "jubilee.png" %}" style="height:100px;">
+      </div>
+    </div>
+    </div>
+    <h5 class="text-dark text-center alert alert-danger">PROFILE DETAILS</h5>
+
+
+
+          <form method="POST" name="f2" action="/updaterecordtask">
+            <table class="table bg-dark text-white" border="2">
+                <tr>
+                    <thead class="thead-dark">
+                      
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>DOB</th>
+                    <th>Password</th>
+                    <th>Role</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <thead>
+                    {% for i in list %}
+                    <tr>
+                    <th ><input readonly value="{{i.id}}" name="id" ></th>
+                     <th ><input type="text" name="name" value="{{i.name |capfirst}}" ></th>              {% comment %}to capatalize{% endcomment %}
+                    <th ><input type="email" name="email" value="{{i.email}}"></th>
+                    <th ><input type="number" name="mobile" value="{{i.mobile}}" ></th>
+                    <th ><input type="date" name="dob" value="{{i.dob}}"></th>
+                    <th ><input type="text" name="password" value="{{i.password}}" ></th>
+                    <th ><input type="text" name="role" value="{{i.role}}" ></th>
+                    <th ><a href="/updaterecordtask?id={{i.id}}">EDIT</a></th>
+                    </tr>
+                    <button type="submit" class="btn btn-primary text-white">SUBMIT</button>
+                    {% endfor %}
+                </thead>
+            </table>
+            <div class="text-center">
+           
+            <a  role="button" class="btn btn-primary " href="/admin">BACK</a>
+            </div>
+        </form>
+      </div>
+      <div class="col-1"></div>
+        </div>
+        </body>
+        </html>

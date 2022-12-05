@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>My website</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static "r1.css" %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet"  href="{% static "css/bootstrap.css" %}">
+        <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
+
+        
+    </head>
+    <body>
+      {% comment %} navbar {% endcomment %}
+      <div class="container-fluid pt-2  text-white heading ">
+        <div class="row">
+          {% comment %} logo {% endcomment %}
+        <div class="col-2 px-3 ">
+          <img  class="navbar-brand" src="{% static 'logo.png' %}" alt="logo" width="80px">
+        </div>
+        {% comment %} title {% endcomment %}
+      <div class="col-8 py-3 ">
+        <h1>Bhopal School of Social Sciences</h1>
+      </div>
+      <div class="col-2 px-3">
+        <img src="{% static "jubilee.png" %}" style="height:100px;">
+      </div>
+    </div>
+    </div>
+    <br>
+    
+      
+    <div class="container lola2" >
+      <div class="col-lg-6 m-auto  text-white">
+        <form action="/signuptask" name="f1" method="POST" >
+          <h1>Register</h1>
+          <div class="form-group">
+            <label for="name">Enter Name:</label>
+          
+              <input type="text"  class="form-control" name="name" placeholder="Name*" required>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label for="email">Enter Email:</label>
+
+            
+              <input type="email"  class="form-control-md" name="email" placeholder="Email*"  required>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label for="dob">Enter DOB:</label>
+           
+              <input type="date" class="form-control-md" name="dob" placeholder="DOB*"  required>
+            </div>
+            
+            <div class="form-outline mb-4">
+              <label for="mobile">Enter Mobile Number:</label>
+
+            
+              <input type="number" class="form-control-md" name="mobile" placeholder="Mobile No.*"   required>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label for="password">Enter Password:</label>
+            
+              <input type="password" class="form-control-md" id="ps" name="password" placeholder="Password*"  
+               required>
+            </div>
+
+            <div class="form-outline mb-4">
+              <label for="repassword">Re-enter Password:</label>
+
+              <input type="password" placeholder="Confirm Password*" 
+               id="cpass" name="confirmpass"   required>
+              
+            </div>
+
+            <div class="form-outline mb-4">
+              <label for="role">Enter your role:</label>
+              <select name="role">
+                <option value="student">Student</option>
+                
+                {% comment %} <option value="admin">Admin</option> {% endcomment %}
+                <option value="faculty">Faculty</option>
+              </select>
+            <br>
+            
+          </div>
+            <button  type="submit" formaction="/signuptask" class="btn btn-primary">Register</button>
+            
+         
+        </form>
+      </div>
+      </div>
+
+    </body>
+</html>

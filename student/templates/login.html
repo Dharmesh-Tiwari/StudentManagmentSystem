@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Login Form Example</title>
+    {% load static %}
+        <link rel="stylesheet" href="{% static "r1.css" %}">
+        <link type="text/css" rel="stylesheet"  href="{% static "css/bootstrap.css" %}">
+        <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
+
+    
+  </head>
+  <body>
+    <div class="container-fluid pt-2  text-white heading ">
+        <div class="row">
+          {% comment %} logo {% endcomment %}
+        <div class="col-2 px-3 ">
+          <img  class="navbar-brand" src="{% static 'logo.png' %}" alt="logo" width="80px">
+        </div>
+        {% comment %} title {% endcomment %}
+      <div class="col-8 py-3 ">
+        <h1>Bhopal School of Social Sciences</h1>
+      </div>
+      <div class="col-2 px-3">
+        <img src="{% static "jubilee.png" %}" style="height:100px;">
+      </div>
+    </div>
+    </div>
+    <br>
+    <!-- partial:index.partial.html -->
+    <div class="container  lola">
+      <div class="d-flex text-justify h-100 text-dark">
+      <form action="/loginTask" method="POST">
+        <h1>Login</h1>
+        <div class="form-group md-3">
+          <label for="email"><b>Email address:</b></label>
+          
+          <input type="email" class="form-control-md" placeholder="Enter email*" name="email" required >
+          <br><br>
+        </div>
+       
+        <div class="form-outline mb-4">
+          <label for="pwd"><b>Password &#160&#160&#160&#160&#160&#160:</b></label>
+          <input type="password" class="form-control-md"  name="password" placeholder="Enter password" id="pwd" required>
+        </div>
+        
+
+          
+          <div class="role">
+            <b>SELECT YOUR ROLE</b>
+            <br>
+            <br>
+            <select  class="select" name='role' required>
+              <option>Select</option>
+            <option value="student" >Student</option>
+            
+            <option value="admin" >Admin</option>
+            <option value="faculty" >Faculty</option>
+            </select>
+            
+            <span class="text-danger ">{{span}}</span>&#160&#160
+          </div>
+          <br>
+    
+          <span class="text-primary">If you are a new user click on REGISTER</span>
+          
+          <div class="text-center mt-5">
+        <button type="submit"  formaction="/loginTask" class="btn btn-primary">Log In</button>
+        <button class="btn btn-primary"><a  class="text-white" href="/signup">Register</a></button>
+          </div>
+        </form>
+      </div>
+      {{a}}
+    </div>
+  </body>
+</html>

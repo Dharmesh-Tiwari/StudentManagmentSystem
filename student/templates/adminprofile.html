@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Login Form Example</title>
+    {% load static %}
+        <link rel="stylesheet" href="{% static "r1.css" %}">
+        <link type="text/css" rel="stylesheet"  href="{% static "css/bootstrap.css" %}">
+        <script type="text/javascript" src="{% static "js/bootstrap.js" %}"></script>
+
+    
+  </head>
+  <body class="body1">
+    <div class="container-fluid pt-2  text-white heading ">
+        <div class="row">
+          {% comment %} logo {% endcomment %}
+        <div class="col-2 px-3 ">
+          <img  class="navbar-brand" src="{% static 'logo.png' %}" alt="logo" width="80px">
+        </div>
+        {% comment %} title {% endcomment %}
+      <div class="col-8 py-3 ">
+        <h1>Bhopal School of Social Sciences</h1>
+      </div>
+      <div class="col-2 px-3">
+        <img src="{% static "jubilee.png" %}" style="height:100px;">
+      </div>
+    </div>
+    </div>
+    
+<h5 class="text-dark text-center alert alert-danger">PROFILE DETAILS</h5>
+<div class=" container ">
+            <table class="table center bg-dark text-white" border="2">
+                <tr>
+                    <thead class="thead-dark">
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th  >
+                    <th>DOB</th>
+                    <th>Password</th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                    {% for i in list %}
+                    <tr>
+                    <td>{{i.id}}</td>
+                    
+                    
+                     <td>{{i.name |capfirst}}</td>              {% comment %}to capatalize{% endcomment %}
+                    <td>{{i.email}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td>{{i.dob}}</td>
+                    <td>{{i.password}}</td>
+                    </tr>
+
+                    {% endfor %}
+            
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center">
+          <a  role="button" class="btn btn-primary " href="/admin">Back</a>
+          </div>
+        </body>
+        </html>
